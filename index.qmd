@@ -24,6 +24,8 @@ format:
     link-citations: true
 execute:
   echo: false
+  warning: false
+  message: false
 prefer-html: true
 bibliography: GIS_Manuscript.bib
 title-block-banner: "#E69F0095"
