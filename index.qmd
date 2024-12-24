@@ -432,9 +432,11 @@ modelsummary(
 
 
 <br>
+
 ## Geospatial Analysis
 
 **Access Points Map**
+
 Let's explore how access points are distributed along the country. As validated above, the districts with the highest amount of access points are those located around Panama City (459 approx), Santiago with 198 and Boquete with approximately 118 access points. Interestingly we can detect that probably these clusters, do not follow a random location.
 
 ```{r access-points-map, echo=FALSE}
@@ -471,6 +473,7 @@ ap_map
 
 <br>
 **Access Points Density per District Map**
+
 Now let's explore how different access points density is within districts. With this map we can confirm that the districts of David, Santiago, Colon and Panama are the ones with a higher concentration of access points. This makes sense in the context that, these districts are where we can locate higher economic development in the country.
 ```{r district-data-access-points, echo=FALSE}
 district_data_merged <- district_data %>%
@@ -517,8 +520,12 @@ leaflet(district_data_merged) %>%
   setView(lng = -80.782127, lat = 8.537981, zoom = 7)
 
 ```
+<br>
 
-```{r panama-highway, eval=FALSE, echo=FALSE}
+**Panama Highway Map**
+
+Highways represent economic development, as they try to bridge different disitrcts across the country. Our hypothesis here is that, access points will be located, around districts where we can see an intersection with the Panamerican Highway. It is worth noting that this highway goes across the complete country form west to east, mostly located on the pacific side of the country, where Panama City is.
+```{r panama-highway, echo=FALSE}
 panama_bb <- getbb("Panama")
 highway <- opq(panama_bb) %>%
   add_osm_feature(key = "name", value = "Carretera Panamericana") %>%
@@ -536,8 +543,21 @@ leaflet() %>%
   setView(lng = -80.782127, lat = 8.537981, zoom = 7)
 
 ```
+<br>
 
-```{r schools-map, eval=FALSE, echo=FALSE}
+**Public Schools Map**
+
+This map shows, clustered, every school in the country. There are 9 types of classifications on the school system:
+- COIF
+- Cefacei
+- IPHE
+- Kinder
+- Parvulario
+- Primaria Oficial
+- Privada
+- Secundaria
+- Universidad
+```{r schools-map, echo=FALSE}
 
 
 pal <- colorFactor(
@@ -575,8 +595,12 @@ leaflet() %>%
   setView(lng = -80.782127, lat = 8.537981, zoom = 7)
 
 ```
+<br>
 
-```{r intersection-district-highway, eval=FALSE, echo=FALSE}
+**Which Districts are Intersected by the Panamerican Highway?**
+
+Below we find, which are the districts that intersect with the Panamerican Highway. As confirmed by the above analysis, the districts with the higher population densities and with the higher amount of access points installed, are more likely to be intersected by it. This is a causal effect of infrastructure development, as highways are more likely to be equiped with better structures to implement different services such as telecommunications.
+```{r intersection-district-highway, echo=FALSE}
 
 districts_with_highway <- st_intersection(district_data, highway$osm_lines)
 
@@ -611,8 +635,14 @@ leaflet() %>%
   setView(lng = -80.782127, lat = 8.537981, zoom = 7)
 
 ```
+<br>
 
-```{r morans-i, eval=FALSE, echo=FALSE}
+## Moran's I
+
+**Access Points Moran's I**
+
+We know that the scale runs from -1 (perfect dispersion) to +1 (perfect clustering). Our result is **0.229**, which indicates positive spatial correlation meaning that districts with similar number of access points (higher or lower) tend to cluster together. With our p-statistic, we can reject the null hypothesis of random spatial distribution. This means that access points are not positioned randomly but rather logically. 
+```{r morans-i,  echo=FALSE}
 district_data_complete <- merge(district_data, 
                               district_summary, 
                               by.x = "NAME_2", 
@@ -636,39 +666,13 @@ moran.plot(district_data_complete$access_points, w,
           zero.policy = TRUE)
 
 ```
+<br>
 
-```{r morans-i2, eval=FALSE, echo=FALSE}
+**Access Points vs Schools and Access Points vs Density Moran's I**
 
-# Calculate local Moran's I
-local_moran <- localmoran(district_data_complete$access_points, w, zero.policy = TRUE)
+We know that the scale runs from -1 (perfect dispersion) to +1 (perfect clustering). Our result is **0.229**, which indicates positive spatial correlation meaning
 
-# Add results to your spatial dataframe
-district_data_complete$local_moran <- local_moran[, 1]
-district_data_complete$local_moran_p <- local_moran[, 5]
-
-# Map it
-leaflet(district_data_complete) %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%
-  addPolygons(
-    fillColor = ~colorNumeric("RdYlBu", local_moran)(local_moran),
-    fillOpacity = 0.7,
-    weight = 1,
-    color = "white",
-    popup = ~paste(
-      "<strong>District:</strong>", NAME_2,
-      "<br><strong>Local Moran's I:</strong>", round(local_moran, 3),
-      "<br><strong>Access Points:</strong>", access_points
-    )
-  ) %>%
-  addLegend(
-    position = "bottomright",
-    pal = colorNumeric("RdYlBu", local_moran[,1]),
-    values = local_moran[,1],
-    title = "Local Moran's I"
-  )
-```
-
-```{r access-points-schools, eval=FALSE, echo=FALSE}
+```{r access-points-schools, echo=FALSE}
 
 # 1. Access Points and Schools relationship
 # Standardize the variables
@@ -716,6 +720,7 @@ moran.plot(district_data_complete$density,
           main="Access Points vs Density",
           zero.policy=TRUE)
 ```
+
 
 ```{r density-access-points, eval=FALSE, echo=FALSE}
 # Calculate ratio of access points to density
