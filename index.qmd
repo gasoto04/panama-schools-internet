@@ -430,11 +430,14 @@ modelsummary(
 ```
 <br>
 
-##Geospatial Analysis
 
-Let's explore how access points are distributed along the country. 
+<br>
+## Geospatial Analysis
 
-```{r access-points-map, eval=FALSE, echo=FALSE}
+**Access Points Map**
+Let's explore how access points are distributed along the country. As validated above, the districts with the highest amount of access points are those located around Panama City (459 approx), Santiago with 198 and Boquete with approximately 118 access points. Interestingly we can detect that probably these clusters, do not follow a random location.
+
+```{r access-points-map, echo=FALSE}
 
 # Create the map
 ap_map <- leaflet(ap_data) %>%
@@ -465,8 +468,11 @@ ap_map <- leaflet(ap_data) %>%
 ap_map
 
 ```
- 
-```{r district-data-access-points, eval=FALSE, echo=FALSE}
+
+<br>
+**Access Points Density per District Map**
+Now let's explore how different access points density is within districts. With this map we can confirm that the districts of David, Santiago, Colon and Panama are the ones with a higher concentration of access points. This makes sense in the context that, these districts are where we can locate higher economic development in the country.
+```{r district-data-access-points, echo=FALSE}
 district_data_merged <- district_data %>%
   left_join(district_summary, by = c("NAME_2" = "district"))
 
