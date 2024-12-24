@@ -67,7 +67,7 @@ and
 
 This first finding is illustrated in @fig-conflict-dist
 
-```{r import-packages, eval=FALSE, echo=FALSE}
+```{r import-packages, echo=FALSE}
 #library
 library(sf)|> suppressPackageStartupMessages()
 library(dplyr)|> suppressPackageStartupMessages()
