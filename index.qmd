@@ -557,9 +557,7 @@ This map shows, clustered, every school in the country. There are 9 types of cla
 - Privada
 - Secundaria
 - Universidad
-```{r schools-map, echo=FALSE}
-
-
+```{r schools-map, eval=FALSE, echo=FALSE}
 pal <- colorFactor(
   palette = "Set3",
   domain = unique(schools_data$type)
@@ -600,7 +598,9 @@ leaflet() %>%
 **Which Districts are Intersected by the Panamerican Highway?**
 
 Below we find, which are the districts that intersect with the Panamerican Highway. As confirmed by the above analysis, the districts with the higher population densities and with the higher amount of access points installed, are more likely to be intersected by it. This is a causal effect of infrastructure development, as highways are more likely to be equiped with better structures to implement different services such as telecommunications.
-```{r intersection-district-highway, echo=FALSE}
+
+
+```{r intersection-district-highway, eval=FALSE, echo=FALSE}
 
 districts_with_highway <- st_intersection(district_data, highway$osm_lines)
 
@@ -642,7 +642,7 @@ leaflet() %>%
 **Access Points Moran's I**
 
 We know that the scale runs from -1 (perfect dispersion) to +1 (perfect clustering). Our result is **0.229**, which indicates positive spatial correlation meaning that districts with similar number of access points (higher or lower) tend to cluster together. With our p-statistic, we can reject the null hypothesis of random spatial distribution. This means that access points are not positioned randomly but rather logically. 
-```{r morans-i,  echo=FALSE}
+```{r morans-i, eval=FALSE,  echo=FALSE}
 district_data_complete <- merge(district_data, 
                               district_summary, 
                               by.x = "NAME_2", 
@@ -672,7 +672,7 @@ moran.plot(district_data_complete$access_points, w,
 
 We know that the scale runs from -1 (perfect dispersion) to +1 (perfect clustering). Our result is **0.229**, which indicates positive spatial correlation meaning
 
-```{r access-points-schools, echo=FALSE}
+```{r access-points-schools, eval=FALSE, echo=FALSE}
 
 # 1. Access Points and Schools relationship
 # Standardize the variables
