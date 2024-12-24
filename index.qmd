@@ -219,11 +219,11 @@ datatable(district_summary,
           options = list(pageLength = 20))
 
 
-province_summary
-district_summary
+#province_summary
+#district_summary
 ```
 
-```{r access-point-district-graph, eval=FALSE, echo=FALSE}
+```{r access-point-district-graph, echo=FALSE}
 district_summary <- district_summary %>%
   filter(!is.na(population), !is.na(access_points)) %>%
   arrange(district) 
@@ -283,7 +283,7 @@ plot_ly(district_summary,
 
 ```
 
-```{r summary-plots, eval=FALSE, echo=FALSE}
+```{r summary-plots, echo=FALSE}
 
 # Create side-by-side plots
 subplot(
