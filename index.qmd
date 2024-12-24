@@ -295,7 +295,7 @@ plot_ly(district_summary,
 
 ```
 <br>
-** Correlations between Population, Schools and Access Points **
+**Correlations between Population, Schools and Access Points**
 
 Below I show 2 plots, where on the left we see the relationship between Access points and Population and on the right, we see the relationship between Access Point-School ratio with the Population.
 ```{r summary-plots, echo=FALSE}
@@ -404,53 +404,35 @@ subplot(
 )
 ```
 <br>
-** Statistical Regression of Access Points on Population **
+**Statistical Regression of Access Points on Population**
 
-Below I show 2 plots, where on the left we see the relationship between Access points
+I have run 2 statistical regression models, where I regress Access Points on Population and Access Points both on Population and Schools. Adding schools improves the model's explanatory power (R² increased by 2.6%). Both population and schools are significant predictors as we can see in the below tables. We can see that for each additional school, we expect 0.216 more access points, holding population constant
 ```{r access-point-regression, echo=FALSE}
 
-library(stargazer)
+library(modelsummary)
 
+# Create multiple models to compare
+model1 <- lm(access_points ~ population, data = district_summary)
+model2 <- lm(access_points ~ population + schools, data = district_summary)
 
-# Run linear regression
-model <- lm(access_points ~ population, data = district_summary)
-
-# View summary of regression results
-#summary(model)
-
-# For a more detailed analysis, we can also include additional variables
-model_extended <- lm(access_points ~ population + schools, data = district_summary)
-#summary(model_extended)
-
-
-cat('
-<style>
-.stargazer-table {
-    margin: 20px auto;
-    width: 80%;
-    border-collapse: collapse;
-}
-.stargazer-table td, .stargazer-table th {
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-.stargazer-table caption {
-    padding: 10px;
-    font-weight: bold;
-}
-</style>
-')
-
-# Create table
-stargazer(model,
-          type = "html",
-          title = "Regression Results: Access Points and Population",
-          dep.var.labels = "Access Points",
-          covariate.labels = c("Intercept", "Population"),
-          digits = 4,
-          header = FALSE,
-          class = "stargazer-table")     
+# Create nice table comparing both models
+modelsummary(
+  list("Model 1" = model1, "Model 2" = model2),
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Intercept",
+    "population" = "Population",
+    "schools" = "Schools"
+  ),
+  title = "Regression Results: Access Points, Population, and Schools"
+)
 ```
+<br>
+
+##Geospatial Analysis
+
+Let's explore how access points are distributed along the country. 
 
 ```{r access-points-map, eval=FALSE, echo=FALSE}
 
