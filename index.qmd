@@ -10,6 +10,8 @@ format:
   html:
     theme: cosmo
     code-fold: true
+    code-tools: false
+    code-overflow: wrap
     #toc: true
     #toc-depth: 3
     #toc-location: left
@@ -20,6 +22,8 @@ format:
   pdf:
     # https://quarto.org/docs/reference/formats/pdf.html
     link-citations: true
+execute:
+  echo: false
 prefer-html: true
 bibliography: GIS_Manuscript.bib
 title-block-banner: "#E69F0095"
@@ -63,20 +67,22 @@ and
 
 This first finding is illustrated in @fig-conflict-dist
 
-```{r import-packages}
-#| label: imports
+```{r import-packages, eval=FALSE, echo=FALSE}
 #library
-library(sf)
-library(dplyr)
-library(stringr)
-library(ggplot2)
-library(tmap)
-library(readr)
-library(DT)
-library(skimr)
-library(plotly)
-library(leaflet)
-
+library(sf)|> suppressPackageStartupMessages()
+library(dplyr)|> suppressPackageStartupMessages()
+library(stringr)|> suppressPackageStartupMessages()
+library(ggplot2)|> suppressPackageStartupMessages()
+library(tmap)|> suppressPackageStartupMessages()
+library(readr)|> suppressPackageStartupMessages()
+library(DT)|> suppressPackageStartupMessages()
+library(skimr)|> suppressPackageStartupMessages()
+library(plotly)|> suppressPackageStartupMessages()
+library(leaflet)|> suppressPackageStartupMessages()
+library(plotly)|> suppressPackageStartupMessages()
+library(osmdata)|> suppressPackageStartupMessages()
+library(spdep)|> suppressPackageStartupMessages()
+library(spatstat)|> suppressPackageStartupMessages()
 
 ```
 
@@ -103,7 +109,7 @@ convert_dms_to_decimal <- function(dms_str) {
 
 ```
 
-```{r data-import}
+```{r data-import, eval=FALSE, echo=FALSE}
 
 #schools data
 schools_csv <- read.csv("data-spatial/schools-data.csv")
@@ -126,8 +132,7 @@ ap_data <- st_as_sf(ap_csv,
                       crs = 4326)
 ```
 
-
-```{r cleaning-coordinates-schools}
+```{r cleaning-coordinates-schools,eval=FALSE, echo=FALSE}
 #Cleaning data
 
 # Convert your coordinates
@@ -143,11 +148,11 @@ schools_data <- st_as_sf(schools_df,
                       crs = 4326)
 ```
 
-```{r removing-objects}
+```{r removing-objects,eval=FALSE, echo=FALSE}
 rm(schools_csv, district_path, ap_csv, schools_df)
 ```
 
-```{r exploratoy-data-analysis}
+```{r exploratoy-data-analysis, eval=FALSE, echo=FALSE}
 
 #province summary
 province_summary <- schools_data %>%
@@ -216,8 +221,7 @@ province_summary
 district_summary
 ```
 
-
-```{r access-point-district-graph}
+```{r access-point-district-graph, eval=FALSE, echo=FALSE}
 district_summary <- district_summary %>%
   filter(!is.na(population), !is.na(access_points)) %>%
   arrange(district) 
@@ -277,8 +281,7 @@ plot_ly(district_summary,
 
 ```
 
-```{r}
-library(plotly)
+```{r summary-plots, eval=FALSE, echo=FALSE}
 
 # Create side-by-side plots
 subplot(
@@ -384,8 +387,7 @@ subplot(
 )
 ```
 
-
-```{r access-point-regression}
+```{r access-point-regression, eval=FALSE, echo=FALSE}
 # Run linear regression
 model <- lm(access_points ~ population, data = district_summary)
 
@@ -396,7 +398,8 @@ summary(model)
 model_extended <- lm(access_points ~ population + schools, data = district_summary)
 summary(model_extended)
 ```
-```{r access-points-map}
+
+```{r access-points-map, eval=FALSE, echo=FALSE}
 
 # Create the map
 ap_map <- leaflet(ap_data) %>%
@@ -428,7 +431,7 @@ ap_map
 
 ```
  
-```{r}
+```{r district-data-access-points, eval=FALSE, echo=FALSE}
 district_data_merged <- district_data %>%
   left_join(district_summary, by = c("NAME_2" = "district"))
 
@@ -474,10 +477,7 @@ leaflet(district_data_merged) %>%
 
 ```
 
-```{r}
-library(osmdata)
-library(sf)
-
+```{r panama-highway, eval=FALSE, echo=FALSE}
 panama_bb <- getbb("Panama")
 highway <- opq(panama_bb) %>%
   add_osm_feature(key = "name", value = "Carretera Panamericana") %>%
@@ -496,9 +496,7 @@ leaflet() %>%
 
 ```
 
-
-
-```{r schools-map}
+```{r schools-map, eval=FALSE, echo=FALSE}
 
 
 pal <- colorFactor(
@@ -537,7 +535,7 @@ leaflet() %>%
 
 ```
 
-```{r intersection-district-highway}
+```{r intersection-district-highway, eval=FALSE, echo=FALSE}
 
 districts_with_highway <- st_intersection(district_data, highway$osm_lines)
 
@@ -573,8 +571,7 @@ leaflet() %>%
 
 ```
 
-```{r morans-i}
-library(spdep)
+```{r morans-i, eval=FALSE, echo=FALSE}
 district_data_complete <- merge(district_data, 
                               district_summary, 
                               by.x = "NAME_2", 
@@ -599,7 +596,7 @@ moran.plot(district_data_complete$access_points, w,
 
 ```
 
-```{r}
+```{r morans-i2, eval=FALSE, echo=FALSE}
 
 # Calculate local Moran's I
 local_moran <- localmoran(district_data_complete$access_points, w, zero.policy = TRUE)
@@ -630,8 +627,7 @@ leaflet(district_data_complete) %>%
   )
 ```
 
-```{r}
-library(spdep)
+```{r access-points-schools, eval=FALSE, echo=FALSE}
 
 # 1. Access Points and Schools relationship
 # Standardize the variables
@@ -680,8 +676,7 @@ moran.plot(district_data_complete$density,
           zero.policy=TRUE)
 ```
 
-
-```{r}
+```{r density-access-points, eval=FALSE, echo=FALSE}
 # Calculate ratio of access points to density
 district_data_complete$ap_per_density <- district_data_complete$access_points / district_data_complete$density
 
@@ -699,7 +694,8 @@ moran_schools <- moran.test(district_data_complete$ap_per_school, w, zero.policy
 print("Moran's I for Access Points relative to Schools:")
 print(moran_schools)
 ```
-```{r morans-i-plots}
+
+```{r morans-i-plots, eval=FALSE, echo=FALSE}
 # Set up to display two Moran plots side by side
 par(mfrow=c(1,2))
 
@@ -758,13 +754,7 @@ leaflet() %>%
  ) 
 ```
 
-
-
-
-```{r pairwise-intensity}
-
-library(spatstat)
-library(sf)
+```{r pairwise-intensity, eval=FALSE, echo=FALSE}
 
 # First, transform both datasets to UTM Zone 17N (EPSG:32617)
 schools_projected <- st_transform(schools_data, 32617)
@@ -812,9 +802,7 @@ plot(cross_L, main = "Cross-type L function: Schools vs Access Points",
 
 ```
 
-
-```{r buffer-analysis}
-library(sf)
+```{r buffer-analysis, eval=FALSE, echo=FALSE}
 
 # First project to UTM for accurate buffer creation
 highway_projected <- st_transform(highway$osm_lines, 32617)  # UTM 17N
@@ -866,7 +854,7 @@ leaflet() %>%
 
 ```
 
-```{r}
+```{r highway-distances, eval=FALSE, echo=FALSE}
 # Calculate distances from each access point to the nearest part of the highway
 distances <- st_distance(ap_projected, highway_projected)
 min_distances <- apply(distances, 1, min)  # Get minimum distance for each point
@@ -923,9 +911,7 @@ leaflet() %>%
 
 ```
 
-
-
-```{r}
+```{r correlation-schools-ap, eval=FALSE, echo=FALSE}
 # Calculate correlation between access points and schools considering spatial weights
 ap_schools_correlation <- cor.test(
   district_data_complete$access_points,
@@ -945,7 +931,7 @@ print("\nAccess Points vs Density:")
 print(ap_density_correlation)
 ```
 
-```{r main-map}
+```{r main-map, eval=FALSE, echo=FALSE}
 leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   # Districts with detailed popups
