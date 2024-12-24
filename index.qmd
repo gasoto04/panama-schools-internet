@@ -153,7 +153,14 @@ schools_data <- st_as_sf(schools_df,
 ```{r removing-objects, echo=FALSE}
 rm(schools_csv, district_path, ap_csv, schools_df)
 ```
+## Exploratory Data Analysis (EDA)
 
+Below we display two tables for both Districts and at the Province level showing relevant indicators such as:
+- Numbers of schools
+- Numbers of Access Points
+- Population
+- Access Points per School Ratio
+- Access Points per 1000 people Ratio
 ```{r exploratoy-data-analysis, echo=FALSE}
 
 #province summary
@@ -222,6 +229,8 @@ datatable(district_summary,
 #province_summary
 #district_summary
 ```
+
+Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
 
 ```{r access-point-district-graph, echo=FALSE}
 district_summary <- district_summary %>%

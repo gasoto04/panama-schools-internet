@@ -19,5 +19,12 @@
     "title": "Public Internet Correlation between Population Density or Schools",
     "section": "Literature Review",
     "text": "Literature Review\nCampante, Do, and Guimaraes (2019) analyzes the relationship between the location of a capital city and the degree of conflict and misgovernance in a given country. Their two key findings are that:\n\nConflict is more likely to emerge (and dislodge incumbents) closer to the capital\n\nand\n\nIsolated capitals are associated with misgovernance.\n\nThis first finding is illustrated in ?@fig-conflict-dist"
+  },
+  {
+    "objectID": "index.html#exploratory-data-analysis-eda",
+    "href": "index.html#exploratory-data-analysis-eda",
+    "title": "Public Internet Correlation between Population Density or Schools",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\nBelow we display two tables for both Districts and at the Province level showing relevant indicators such as: - Numbers of schools - Numbers of Access Points - Population - Access Points per School Ratio - Access Points per 1000 people Ratio\n\n\n\n\n\n\n\n\n\n\nMost of these studies, however, are based on observations of conflict events. In this study, we study the more fundamental variable of a capital’s distance from the population centroid of the country."
   }
 ]
