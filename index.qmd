@@ -10,52 +10,61 @@ format:
   html:
     theme: cosmo
     code-fold: true
-    toc: true
-    toc-depth: 3
-    toc-location: left
-    number-sections: true
-    html-math-method: katex
-    css: styles.css
+    #toc: true
+    #toc-depth: 3
+    #toc-location: left
+    #number-sections: true
+    #html-math-method: katex
+    #css: styles.css
     df-print: kable
-#bibliography: GIS_Manuscript.bib
+  pdf:
+    # https://quarto.org/docs/reference/formats/pdf.html
+    link-citations: true
+prefer-html: true
+bibliography: GIS_Manuscript.bib
 title-block-banner: "#E69F0095"
 title-block-banner-color: "black"
 ---
+## Introduction
 
-## Do public schools get better access to public internet?
-
-This research analyses whether public schools in Panama, get access to public internet via access points
-
+Do public schools get better access to public internet? This research analyses whether public schools in Panama, get access to public internet via access points
 - Google Satellite
 - Migration Panama
 
-###
-- Mostrar histograma por provincia, cantidad de access points y escuelas
-- Mostrar histoograma por distrito, cantidad de ap y escuelas
-- ver si puedo encontrar, que distritos tocan el panamerican highway
-- correr una regresion? 
 - meter data temporal de uso de datos por access points
 - agregar datos de cantidad de estudiantes por distrito
 https://www.inec.gob.pa/archivos/P030194820231213142523Cuadro%2021.pdf
 - agregar un indice normalizado (ya que el numero es muy chiquito) de la cantidad de casas sin internet
 https://www.inec.gob.pa/archivos/P0705547520240202111515Cuadro%201.pdf
 
-
-
-
 Future:
 - indicadores socioeconomicos a nivel de distrito https://www.inec.gob.pa/archivos/P0579518620240202083001Cuadro%204.pdf
-- 
 
 
-It's _plain text_ so works well with version control
-- It can be **rendered** into HTML, PDF, and more
-- Learn more at: <https://quarto.org/docs/authoring/>
+dijo:
 
-Construction Polygons (Satellite Data):
-Use Moran's I to evaluate the spatial clustering of construction activities over time. Is construction clustering around migrant routes or reception centers? You could calculate Moran’s I for different years to observe changes in spatial autocorrelation patterns.
+> It's the remoteness of Oyala that makes it so appealing to President Obiang. In a rare interview he described how rebels had recently plotted a seaborne assault on his palace in the current capital, Malabo. 'We need a secure place for my government and for future governments. That's why we have created Oyala, to guarantee the government of Equatorial Guinea.' [@sackur_equatorial_2012]
+
+This case is far from exceptional, as an even more recent *Washington Post* article points out with respect to Myanmar's decision to move its capital from Yangon to Naypyidaw:
+
+> Analysts have described the decision as motivated by a desire to secure the military’s seat of power from any threat of protests or invasions. [@berger_myanmars_2021]
+
+Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
+
+## Literature Review
+
+@campante_capital_2019 analyzes the relationship between the location of a **capital city** and the degree of conflict and misgovernance in a given country. Their two key findings are that:
+
+> Conflict is more likely to emerge (and dislodge incumbents) closer to the capital
+
+and
+
+> Isolated capitals are associated with misgovernance.
+
+This first finding is illustrated in @fig-conflict-dist
 
 ```{r import-packages}
+#| label: imports
 #library
 library(sf)
 library(dplyr)
