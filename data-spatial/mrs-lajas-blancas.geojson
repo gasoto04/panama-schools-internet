@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.811105,
+                    8.4170155
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Station: Lajas Blancas"
+            }
+        }
+    ]
+}

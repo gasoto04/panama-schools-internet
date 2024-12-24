@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.80646156637172,
+                    8.635007215849157
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Canaan Membrillo"
+            }
+        }
+    ]
+}

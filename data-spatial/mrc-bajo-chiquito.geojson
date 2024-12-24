@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.67947462174719,
+                    8.457139805619864
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Bajo Chiquito"
+            }
+        }
+    ]
+}

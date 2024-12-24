@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.470039,
+                    8.554689
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Cañas Blancas"
+            }
+        }
+    ]
+}

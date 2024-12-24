@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.3653109,
+                    8.6285304
+                ]
+            },
+            "properties": {
+                "name": "Port Capurgana"
+            }
+        }
+    ]
+}

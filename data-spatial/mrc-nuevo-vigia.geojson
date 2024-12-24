@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.763467570384,
+                    8.379971578326327
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Nuevo Vigia"
+            }
+        }
+    ]
+}

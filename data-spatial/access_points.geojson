@@ -1,0 +1,834 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.882749,
+                    8.53675
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Alto Playon",
+                "Provincia": "Comarca Ember\u00e1-Wounaan",
+                "Distrito": "Cémaco",
+                "Corregimiento": "Lajas Blancas",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.697471,
+                    8.467305
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Río Tuqueza",
+                "Provincia": "Comarca Ember\u00e1-Wounaan",
+                "Distrito": "Cémaco",
+                "Corregimiento": "Lajas Blancas",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "10/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.724348,
+                    8.92176
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Arcadio Martínez",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Tubual\u00e1",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.801834,
+                    9.023974
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Nabagandi",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Tubual\u00e1",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.751085,
+                    8.947047
+                ]
+            },
+            "properties": {
+                "Nombre": "Parque Comunidad MULADUP",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Tubual\u00e1",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.75165,
+                    8.946453
+                ]
+            },
+            "properties": {
+                "Nombre": "Parque Comunidad Sasardi",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Tubual\u00e1",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.196082,
+                    8.860915
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Agua Fría N\u00ba 1",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Agua Fría",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.190249,
+                    8.826471
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Agua Fría N\u00ba 2",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Agua Fría",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.173499,
+                    8.766567
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela El Tirado",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Agua Fría",
+                
+                "Fecha de Activacion": "19/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.365278,
+                    8.066667
+                ]
+            },
+            "properties": {
+                "Nombre": "Centro de Alcance Positivo Garachine",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Garachiné",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "22/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.162023,
+                    7.518428
+                ]
+            },
+            "properties": {
+                "Nombre": "Centro de Alcance Positivo Jaque",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Jaqué",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.141389,
+                    8.4025
+                ]
+            },
+            "properties": {
+                "Nombre": "Centro de Alcance Positivo La Palma",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "21/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.138339,
+                    8.401411
+                ]
+            },
+            "properties": {
+                "Nombre": "Hospital de la Palma",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "22/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.14153,
+                    8.402317
+                ]
+            },
+            "properties": {
+                "Nombre": "I.P.T. Alejandro Castillo",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "21/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.141177,
+                    8.407959
+                ]
+            },
+            "properties": {
+                "Nombre": "Juzgado Municipal La Palma",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "21/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.137191,
+                    8.406702
+                ]
+            },
+            "properties": {
+                "Nombre": "Mercado P\u00fablico La Palma",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "21/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.139614,
+                    8.408155
+                ]
+            },
+            "properties": {
+                "Nombre": "Parque",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "21/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.138605,
+                    8.403791
+                ]
+            },
+            "properties": {
+                "Nombre": "Universidad Nacional",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "La Palma",
+                "Tipo UM": "PMP",
+                "Fecha de Activacion": "22/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.209167,
+                    8.025556
+                ]
+            },
+            "properties": {
+                "Nombre": "Centro de Alcance Positivo Samb\u00fa",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Samb\u00fa",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.132346,
+                    8.650838
+                ]
+            },
+            "properties": {
+                "Nombre": "CENTRO EDUCATIVO SECUNDARIO ZAPALLAL",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "19/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.127736,
+                    8.649365
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela El Zapallal",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "19/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.143304,
+                    8.693971
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela GERARDO BACORIZO",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "01/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.170516,
+                    8.642198
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela La Cantera",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "19/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.157471,
+                    8.661193
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Sta. Fe",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "01/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.22136,
+                    8.770915
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Zimba",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "01/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.975703,
+                    8.509325
+                ]
+            },
+            "properties": {
+                "Nombre": "Area frente al MIDES",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.981031,
+                    8.497153
+                ]
+            },
+            "properties": {
+                "Nombre": "C.E.B.G. Marcos A. Alarcon P.",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.828582,
+                    8.34175
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Canglon (Instituto Forestal Agropecuario de Darién)",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "10/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.980546,
+                    8.498774
+                ]
+            },
+            "properties": {
+                "Nombre": "Hospital de Meteti",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.980718,
+                    8.50213
+                ]
+            },
+            "properties": {
+                "Nombre": "IPHE Metetí",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.973,
+                    8.501914
+                ]
+            },
+            "properties": {
+                "Nombre": "Municipio de Metetí",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "22/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.97885,
+                    8.50165
+                ]
+            },
+            "properties": {
+                "Nombre": "Parque Comunitario - cancha de baloncesto y futbol",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.972,
+                    8.496931
+                ]
+            },
+            "properties": {
+                "Nombre": "Servicio Nacional de Fronteras - Candela",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.983802,
+                    8.492036
+                ]
+            },
+            "properties": {
+                "Nombre": "Terminal de Transporte Metetí",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": "20/06/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.159147,
+                    8.658781
+                ]
+            },
+            "properties": {
+                "Nombre": "ESC. CIUDAD SANTA FE",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Santa Fe",
+                
+                "Fecha de Activacion": "12/07/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.753169,
+                    8.942488
+                ]
+            },
+            "properties": {
+                "Nombre": "Hospital Rural Inabaguinya",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Tubual\u00e1",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.354799,
+                    8.1202
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Basica Corozal",
+                "Provincia": "Comarca Ember\u00e1-Wounaan",
+                "Distrito": "Cémaco",
+                "Corregimiento": "Cirilo Guaynora",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "07/08/2017"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.9729,
+                    9.19146
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Mamitupu",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Ailigandí",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "24/10/2018"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.15451,
+                    9.2946
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela San Ignacio de Tupile",
+                "Provincia": "Comarca Guna Yala",
+                "Distrito": "Comarca Guna Yala",
+                "Corregimiento": "Ailigandí",
+                "Tipo UM": "Satelital",
+                "Fecha de Activacion": "24/10/2018"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.009873,
+                    8.547171
+                ]
+            },
+            "properties": {
+                "Nombre": "Area frente a la Fundacion Pro Niños de Darién",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.816432,
+                    8.30198
+                ]
+            },
+            "properties": {
+                "Nombre": "Instituto Agro Forestal en Canglon",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.942749,
+                    8.468139
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Portuchada",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.370531,
+                    8.798137
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Arenal",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Río Congo Arriba",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.05638,
+                    8.587795
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela La Moneda",
+                "Provincia": "Darien",
+                "Distrito": "Chepigana",
+                "Corregimiento": "Río Iglesias",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.986232,
+                    8.526675
+                ]
+            },
+            "properties": {
+                "Nombre": "Escuela Punuloso",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.031989,
+                    8.566185
+                ]
+            },
+            "properties": {
+                "Nombre": "CEBG San Vicente",
+                "Provincia": "Darien",
+                "Distrito": "Pinogana",
+                "Corregimiento": "Metetí",
+                
+                "Fecha de Activacion": null
+            }
+        }
+    ]
+}
+

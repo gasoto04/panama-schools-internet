@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.89402634564553,
+                    8.543859966943927
+                  ]
+            },
+            "properties": {
+                "name": "Port Limon"
+            }
+        }
+    ]
+}

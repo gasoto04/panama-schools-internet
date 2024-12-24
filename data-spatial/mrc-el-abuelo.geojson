@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.74502966989107,
+                    8.652290295004862
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: El Abuelo"
+            }
+        }
+    ]
+}

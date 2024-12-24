@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.71304654293313,
+                    8.649985477252446
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Tacarti"
+            }
+        }
+    ]
+}

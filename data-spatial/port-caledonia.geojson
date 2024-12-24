@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.6702421,
+                    8.8333735
+                ]
+            },
+            "properties": {
+                "name": "Port Caledonia"
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.60557036360413,
+                    8.46054687823868
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Community: Come Gallina"
+            }
+        }
+    ]
+}

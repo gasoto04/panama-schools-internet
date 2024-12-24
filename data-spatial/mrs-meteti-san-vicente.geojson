@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.9717278835324,
+                    8.50081702735962
+                ]
+            },
+            "properties": {
+                "name": "Migrant Reception Station: Meteti-San Vicente"
+            }
+        }
+    ]
+}
