@@ -295,7 +295,7 @@ plot_ly(district_summary,
 
 ```
 <br>
-### Correlations between Population, Schools and Access Points
+** Correlations between Population, Schools and Access Points **
 
 Below I show 2 plots, where on the left we see the relationship between Access points and Population and on the right, we see the relationship between Access Point-School ratio with the Population.
 ```{r summary-plots, echo=FALSE}
@@ -403,17 +403,53 @@ subplot(
   titleX = TRUE
 )
 ```
+<br>
+** Statistical Regression of Access Points on Population **
 
+Below I show 2 plots, where on the left we see the relationship between Access points
 ```{r access-point-regression, echo=FALSE}
+
+library(stargazer)
+
+
 # Run linear regression
 model <- lm(access_points ~ population, data = district_summary)
 
 # View summary of regression results
-summary(model)
+#summary(model)
 
 # For a more detailed analysis, we can also include additional variables
 model_extended <- lm(access_points ~ population + schools, data = district_summary)
-summary(model_extended)
+#summary(model_extended)
+
+
+cat('
+<style>
+.stargazer-table {
+    margin: 20px auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+.stargazer-table td, .stargazer-table th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.stargazer-table caption {
+    padding: 10px;
+    font-weight: bold;
+}
+</style>
+')
+
+# Create table
+stargazer(model,
+          type = "html",
+          title = "Regression Results: Access Points and Population",
+          dep.var.labels = "Access Points",
+          covariate.labels = c("Intercept", "Population"),
+          digits = 4,
+          header = FALSE,
+          class = "stargazer-table")     
 ```
 
 ```{r access-points-map, eval=FALSE, echo=FALSE}
