@@ -109,7 +109,7 @@ convert_dms_to_decimal <- function(dms_str) {
 
 ```
 
-```{r data-import, eval=FALSE, echo=FALSE}
+```{r data-import, echo=FALSE}
 
 #schools data
 schools_csv <- read.csv("data-spatial/schools-data.csv")
@@ -132,7 +132,7 @@ ap_data <- st_as_sf(ap_csv,
                       crs = 4326)
 ```
 
-```{r cleaning-coordinates-schools,eval=FALSE, echo=FALSE}
+```{r cleaning-coordinates-schools, echo=FALSE}
 #Cleaning data
 
 # Convert your coordinates
@@ -148,11 +148,11 @@ schools_data <- st_as_sf(schools_df,
                       crs = 4326)
 ```
 
-```{r removing-objects,eval=FALSE, echo=FALSE}
+```{r removing-objects, echo=FALSE}
 rm(schools_csv, district_path, ap_csv, schools_df)
 ```
 
-```{r exploratoy-data-analysis, eval=FALSE, echo=FALSE}
+```{r exploratoy-data-analysis, echo=FALSE}
 
 #province summary
 province_summary <- schools_data %>%
