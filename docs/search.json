@@ -25,6 +25,6 @@
     "href": "index.html#exploratory-data-analysis-eda",
     "title": "Public Internet Correlation between Population Density or Schools",
     "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\nBelow we display two tables for both Districts and at the Province level showing relevant indicators such as: - Numbers of schools - Numbers of Access Points - Population - Access Points per School Ratio - Access Points per 1000 people Ratio\n\n\n\n\n\n\n\n\n\n\nMost of these studies, however, are based on observations of conflict events. In this study, we study the more fundamental variable of a capital’s distance from the population centroid of the country."
+    "text": "Exploratory Data Analysis (EDA)\nBelow we display two tables for both ** Districts and at the Province level ** showing relevant indicators such as: - Numbers of schools - Numbers of Access Points - Population - Access Points per School Ratio - Access Points per 1000 people Ratio\n\n\n\n\n\n\n\n\n\n\n We can see from the above tables, that Districts that house cities, are the ones with higher amounts of access points. We see the same behavior with the Provinces, specially with main cities such as Panama, Veraguas and Chiriqui.  Most of these studies, however, are based on observations of conflict events. In this study, we study the more fundamental variable of a capital’s distance from the population centroid of the country."
   }
 ]

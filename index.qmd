@@ -155,7 +155,7 @@ rm(schools_csv, district_path, ap_csv, schools_df)
 ```
 ## Exploratory Data Analysis (EDA)
 
-Below we display two tables for both Districts and at the Province level showing relevant indicators such as:
+Below we display two tables for both ** Districts and at the Province level ** showing relevant indicators such as:
 - Numbers of schools
 - Numbers of Access Points
 - Population
@@ -229,8 +229,11 @@ datatable(district_summary,
 #province_summary
 #district_summary
 ```
-
+<br>
+We can see from the above tables, that Districts that house cities, are the ones with higher amounts of access points. We see the same behavior with the Provinces, specially with main cities such as Panama, Veraguas and Chiriqui. 
+<br>
 Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
+<br>
 
 ```{r access-point-district-graph, echo=FALSE}
 district_summary <- district_summary %>%
