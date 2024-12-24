@@ -235,7 +235,7 @@ We can see from the above tables, that Districts that house cities, are the ones
 Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
 <br>
 
-```{r access-point-district-graph, echo=FALSE}
+```{r access-point-district-graph, eval=FALSE, echo=FALSE}
 district_summary <- district_summary %>%
   filter(!is.na(population), !is.na(access_points)) %>%
   arrange(district) 
@@ -294,7 +294,10 @@ plot_ly(district_summary,
   )
 
 ```
+<br>
+### Correlations between Population, Schools and Access Points
 
+Below I show 2 plots, where on the left we see the relationship between Access points and Population and on the right, we see the relationship between Access Point-School ratio with the Population.
 ```{r summary-plots, echo=FALSE}
 
 # Create side-by-side plots
@@ -401,7 +404,7 @@ subplot(
 )
 ```
 
-```{r access-point-regression, eval=FALSE, echo=FALSE}
+```{r access-point-regression, echo=FALSE}
 # Run linear regression
 model <- lm(access_points ~ population, data = district_summary)
 
