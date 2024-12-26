@@ -362,9 +362,31 @@ pacific side of the country, where Panama City is.
 \textbf{Public Schools Map}
 
 This map shows, clustered, every school in the country. There are 9
-types of classifications on the school system: - COIF - Cefacei - IPHE -
-Kinder - Parvulario - Primaria Oficial - Privada - Secundaria -
-Universidad
+types of classifications on the school system:
+
+\begin{itemize}
+\tightlist
+\item
+  COIF
+\item
+  Cefacei
+\item
+  IPHE
+\item
+  Kinder
+\item
+  Parvulario
+\item
+  Primaria Oficial
+\item
+  Privada
+\item
+  Secundaria
+\item
+  Universidad
+\end{itemize}
+
+\includegraphics{index_files/figure-pdf/schools-map-1.pdf}
 
 \textbf{Which Districts are Intersected by the Panamerican Highway?}
 
@@ -388,11 +410,103 @@ we can reject the null hypothesis of random spatial distribution. This
 means that access points are not positioned randomly but rather
 logically.
 
-\textbf{Access Points vs Schools and Access Points vs Density Moran's I}
+\begin{verbatim}
+[1] "Moran's I for Access Points vs Schools:"
+\end{verbatim}
 
-We know that the scale runs from -1 (perfect dispersion) to +1 (perfect
-clustering). Our result is \textbf{0.229}, which indicates positive
-spatial correlation meaning
+\begin{verbatim}
+
+    Moran I test under randomisation
+
+data:  district_data_complete$access_points  
+weights: nb2listw(nb, style = "W", zero.policy = TRUE)  
+n reduced by no-neighbour observations  
+
+Moran I statistic standard deviate = 4.7929, p-value = 8.218e-07
+alternative hypothesis: greater
+sample estimates:
+Moran I statistic       Expectation          Variance 
+      0.229408902      -0.013888889       0.002576752 
+\end{verbatim}
+
+\textbf{Mapping Access Points vs Schools ratio}
+
+As expected, we have a higher ratio within districts that are city
+districts such as Panama, San Miguelito, Pedasi and Chitre. It is worth
+mentioning that for instance, Pedasi is not a big city town, but instead
+is touristy town. They have 9 school total, with 11 AP located in this
+district.
+
+\includegraphics{index_files/figure-pdf/morans-i-plots-1.pdf}
+
+\subsection{Pairwise Intensity
+function}\label{pairwise-intensity-function}
+
+\textbf{Analyzing Intensity function}
+
+As expected, we see that access points tend to cluster together within
+distances of 1500 meters. When that threshold is passed, the clustering
+of these points decreases sharply. This is consonant to the logic of
+installing access points in dense areas and where more schools are
+located.
+
+\includegraphics{index_files/figure-pdf/pairwise-intensity-1.pdf}
+
+\includegraphics{index_files/figure-pdf/pairwise-intensity-2.pdf}
+
+\begin{verbatim}
+
+Mean nearest neighbor distance: 1617.98 meters
+\end{verbatim}
+
+\begin{verbatim}
+
+Median nearest neighbor distance: 400.99 meters
+\end{verbatim}
+
+\textbf{Buffer Analysis with Panamerican Highway}
+
+As expected, from this analysis, we can see that there is a higher
+amount of schools outside the inner buffers, as schools will try to
+serve the wider population, beyond the urban areas. On the other hand,
+we will see more access points located in urban areas, therefore closer
+to the highway as they serve more the densed urban areas.
+
+\includegraphics{index_files/figure-pdf/buffer-analysis-1.pdf}
+
+\begin{verbatim}
+          Zone Access_Points Schools AP_Percentage Schools_Percentage
+1       0-5 km         27937   29751       2140.77             919.94
+2      5-10 km         29707   46831       2276.40            1448.08
+3 Beyond 10 km        -56339  -73348      -4317.16           -2268.03
+  AP_per_School
+1          0.94
+2          0.63
+3          0.77
+\end{verbatim}
+
+\textbf{Access Points Distance from Panamerican Highway Analysis}
+
+Here we analyze how far are the acces points from the highway and how
+clustered they are. Within the distribution, most access points are
+located within a 10km radius from the highway, meaning that they do
+follow a infrastructure logic behind the installation. It is very
+important to mention that there is an increase in the amount of access
+points beyond the 90/100kms. This follows the installation of access
+points in areas of difficult access, beyond the urban areas.
+
+\begin{verbatim}
+[1] "Summary statistics of distances (in km):"
+\end{verbatim}
+
+\begin{verbatim}
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+  0.00033   1.54627   8.06498  18.26326  23.90969 112.14684 
+\end{verbatim}
+
+\includegraphics{index_files/figure-pdf/highway-distances-1.pdf}
+
+\includegraphics{index_files/figure-pdf/highway-distances-2.pdf}
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
