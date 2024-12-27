@@ -1,5 +1,5 @@
 ---
-title: "Public Internet Correlation between Population Density or Schools"
+title: "Public Internet Correlation between Population Density and Schools"
 subtitle: "DSAN 6750 / PPOL 6805: GIS for Spatial Data Science"
 authors:
   - name: Gabriel Soto
@@ -33,41 +33,23 @@ title-block-banner-color: "black"
 ---
 ## Introduction
 
-Do public schools get better access to public internet? This research analyses whether public schools in Panama, get access to public internet via access points
-- Google Satellite
-- Migration Panama
+Do schools in Panama get better access to public internet? This research will analyze whether schools in Panama, get access to public internet via access points. We will also look into, the spatial correlation of access points, where we want to highlight if access points are either located in high density areas or not. As a plus, I will also look into the spatial relationship of access points and schools with the Panamerican Highway, which is the main highway that crosses the country. For this project we will be using the following data sources:
 
-- meter data temporal de uso de datos por access points
-- agregar datos de cantidad de estudiantes por distrito
-https://www.inec.gob.pa/archivos/P030194820231213142523Cuadro%2021.pdf
-- agregar un indice normalizado (ya que el numero es muy chiquito) de la cantidad de casas sin internet
-https://www.inec.gob.pa/archivos/P0705547520240202111515Cuadro%201.pdf
-
-Future:
-- indicadores socioeconomicos a nivel de distrito https://www.inec.gob.pa/archivos/P0579518620240202083001Cuadro%204.pdf
+* Schools locations: Ministry of Education of Panama
+* Access Points locations: Governement Innovation Institution
+* Panamerican Highway location: Smithsonian Tropical Research Institution
 
 
-dijo:
 
-> It's the remoteness of Oyala that makes it so appealing to President Obiang. In a rare interview he described how rebels had recently plotted a seaborne assault on his palace in the current capital, Malabo. 'We need a secure place for my government and for future governments. That's why we have created Oyala, to guarantee the government of Equatorial Guinea.' [@sackur_equatorial_2012]
 
-This case is far from exceptional, as an even more recent *Washington Post* article points out with respect to Myanmar's decision to move its capital from Yangon to Naypyidaw:
+### Hypothesis
 
-> Analysts have described the decision as motivated by a desire to secure the military’s seat of power from any threat of protests or invasions. [@berger_myanmars_2021]
+For this project I have the following First-Order and Second-Order properties:
 
-Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
+> 1. First-Order Property: I will analyze how the intensity of access points varies across Panama in relation to schools and population density. My hypothesis is that the density of access points is higher in areas with higher population density and greater concentration of schools, suggesting that infrastructure deployment follows population and educational needs.
+> 2. Second-Order Property: For my second-order property, I want to explore the spatial relationships between access points, schools, and population density. My hypothesis is that access points exhibit positive spatial autocorrelation with both schools and population density, indicating that their placement is influenced by these factors and tends to cluster in areas with higher educational and population demands.
 
-## Literature Review
-
-@campante_capital_2019 analyzes the relationship between the location of a **capital city** and the degree of conflict and misgovernance in a given country. Their two key findings are that:
-
-> Conflict is more likely to emerge (and dislodge incumbents) closer to the capital
-
-and
-
-> Isolated capitals are associated with misgovernance.
-
-This first finding is illustrated in @fig-conflict-dist
+Let's begin below, with the Exploratory Data Analysis.
 
 ```{r import-packages, echo=FALSE}
 #library
@@ -155,12 +137,14 @@ rm(schools_csv, district_path, ap_csv, schools_df)
 ```
 ## Exploratory Data Analysis (EDA)
 
-Below we display two tables for both ** Districts and at the Province level ** showing relevant indicators such as:
+Below we display two tables for both **Districts and at the Province level** showing relevant indicators such as:
 - Numbers of schools
 - Numbers of Access Points
 - Population
 - Access Points per School Ratio
 - Access Points per 1000 people Ratio
+
+This is useful to compare, across the project, how more densed districts behave spatially.
 ```{r exploratoy-data-analysis, echo=FALSE}
 
 #province summary
@@ -229,7 +213,9 @@ datatable(district_summary,
 #province_summary
 #district_summary
 ```
+
 <br>
+
 We can see from the above tables, that Districts that house cities, are the ones with higher amounts of access points. We see the same behavior with the Provinces, specially with main cities such as Panama, Veraguas and Chiriqui. 
 <br>
 Most of these studies, however, are based on observations of **conflict events**. In this study, we study the more fundamental variable of a capital's distance from the **population centroid** of the country.
@@ -295,7 +281,8 @@ plot_ly(district_summary,
 
 ```
 <br>
-**Correlations between Population, Schools and Access Points**
+
+### Correlations between Population, Schools and Access Points
 
 Below I show 2 plots, where on the left we see the relationship between Access points and Population and on the right, we see the relationship between Access Point-School ratio with the Population.
 ```{r summary-plots, echo=FALSE}
@@ -404,9 +391,10 @@ subplot(
 )
 ```
 <br>
-**Statistical Regression of Access Points on Population**
 
-I have run 2 statistical regression models, where I regress Access Points on Population and Access Points both on Population and Schools. Adding schools improves the model's explanatory power (R² increased by 2.6%). Both population and schools are significant predictors as we can see in the below tables. We can see that for each additional school, we expect 0.216 more access points, holding population constant
+### Statistical Regression of Access Points on Population
+
+I have run 2 statistical regression models, where I regress Access Points on Population and Access Points both on Population and Schools. Adding schools improves the model's explanatory power (R² increased by 2.6%). Both population and schools are significant predictors as we can see in the below tables. We can see that for each additional school, we expect 0.216 more access points, holding population constant.
 ```{r access-point-regression, echo=FALSE}
 
 library(modelsummary)
@@ -435,9 +423,9 @@ modelsummary(
 
 ## Geospatial Analysis
 
-**Access Points Map**
+### Access Points Map
 
-Let's explore how access points are distributed along the country. As validated above, the districts with the highest amount of access points are those located around Panama City (459 approx), Santiago with 198 and Boquete with approximately 118 access points. Interestingly we can detect that probably these clusters, do not follow a random location.
+Let's explore how access points are distributed along the country. As validated above, the districts with the highest amount of access points are those located around Panama City (459 approx), Santiago with 198 and Boquete with approximately 118 access points. Interestingly we can detect that probably these clusters, do not follow a random location. I have clustered the access points data, to facilitate the readibility of the map. We can see the first signs that the spatial distribution follows a "S" layout, same as the country. This will be more clear later on, when we display other points. 
 
 ```{r access-points-map, echo=FALSE}
 
@@ -472,7 +460,8 @@ ap_map
 ```
 
 <br>
-**Access Points Density per District Map**
+
+### Access Points Density per District Map
 
 Now let's explore how different access points density is within districts. With this map we can confirm that the districts of David, Santiago, Colon and Panama are the ones with a higher concentration of access points. This makes sense in the context that, these districts are where we can locate higher economic development in the country.
 ```{r district-data-access-points, echo=FALSE}
@@ -522,7 +511,7 @@ leaflet(district_data_merged) %>%
 ```
 <br>
 
-**Panama Highway Map**
+### Panama Highway Map
 
 Highways represent economic development, as they try to bridge different disitrcts across the country. Our hypothesis here is that, access points will be located, around districts where we can see an intersection with the Panamerican Highway. It is worth noting that this highway goes across the complete country form west to east, mostly located on the pacific side of the country, where Panama City is.
 
@@ -546,19 +535,19 @@ leaflet() %>%
 ```
 <br>
 
-**Public Schools Map**
+### Public Schools Map
 
 This map shows, clustered, every school in the country. There are 9 types of classifications on the school system:
 
-- COIF
-- Cefacei
-- IPHE
-- Kinder
-- Parvulario
-- Primaria Oficial
-- Privada
-- Secundaria
-- Universidad
+- COIF: Early Childhood Attention Center
+- Cefacei: Early Chilhood Community and Familiy Centers 
+- IPHE: Special Habilitation Panamanian Institute
+- Kinder: Pre Kinder
+- Parvulario: Kinder
+- Primaria Oficial: Elementary School
+- Privada: Private School
+- Secundaria: Highschool
+- Universidad: College
 
 ```{r schools-map, echo=FALSE}
 pal <- colorFactor(
@@ -599,12 +588,12 @@ leaflet() %>%
 
 <br>
 
-**Which Districts are Intersected by the Panamerican Highway?**
+### Which Districts are Intersected by the Panamerican Highway?
 
-Below we find, which are the districts that intersect with the Panamerican Highway. As confirmed by the above analysis, the districts with the higher population densities and with the higher amount of access points installed, are more likely to be intersected by it. This is a causal effect of infrastructure development, as highways are more likely to be equiped with better structures to implement different services such as telecommunications.
+Below we find, which are the districts that intersect with the Panamerican Highway. As confirmed by the above analysis, the districts with the higher population densities and with the higher amount of access points installed, are more likely to be intersected by it. This is a causal effect of infrastructure development, as highways are more likely to be equiped with better structures to implement different services such as telecommunications. As seen on the maps above, we can see that the districts with a higher concentration of access points, are the same ones that intersect with the highway. 
 
 
-```{r intersection-district-highway, eval=FALSE, echo=FALSE}
+```{r intersection-district-highway, echo=FALSE}
 
 districts_with_highway <- st_intersection(district_data, highway$osm_lines)
 
@@ -672,7 +661,7 @@ leaflet() %>%
 ```
 <br>
 
-**Access Points Moran's I**
+### Access Points Moran's I
 
 We know that the scale runs from -1 (perfect dispersion) to +1 (perfect clustering). Our result is **0.229**, which indicates positive spatial correlation meaning that districts with similar number of access points (higher or lower) tend to cluster together. With our p-statistic, we can reject the null hypothesis of random spatial distribution. This means that access points are not positioned randomly but rather logically.
 
@@ -704,9 +693,9 @@ print(moran_ap_schools)
 
 <br>
 
-**Mapping Access Points vs Schools ratio**
+### Mapping Access Points vs Schools ratio
 
-As expected, we have a higher ratio within districts that are city districts such as Panama, San Miguelito, Pedasi and Chitre. It is worth mentioning that for instance, Pedasi is not a big city town, but instead is touristy town. They have 9 school total, with 11 AP located in this district. 
+As expected, we have a higher ratio within districts that are city districts such as Panama, San Miguelito, Pedasi and Chitre. It is worth mentioning that for instance, Pedasi is not a big city town, but instead is touristy town. They have 9 school total, with 11 AP located in this district. In more urban areas we will have a higher ratio of access points to schools. This signals to a possibility of schools being located in highly densed areas and therefore, finding more access points.
 
 
 ```{r morans-i-plots, echo=FALSE}
@@ -774,7 +763,7 @@ leaflet() %>%
 
 **Analyzing Intensity function**
 
-As expected, we see that access points tend to cluster together within distances of 1500 meters. When that threshold is passed, the clustering of these points decreases sharply. This is consonant to the logic of installing access points in dense areas and where more schools are located. 
+As expected, we see that access points tend to cluster together within distances of 1500 meters. When that threshold is passed, the clustering of these points decreases sharply. This is consonant to the logic of installing access points in dense areas and where more schools are located. The **Mean nearest neighbor distance** is 1617.98 meters. This means that we have some outliers access points, that are located in difficult access areas in very rural zones. They are more likely to be separeted from others. These locations could be pulling the mean up. On the other hand the **Median nearest neighbor distance** is 400.99 meters which is lower than the mean. This indicates that most of the access points are clustered in distances lower than 400 meters. This indicates a clustered pattern and not a uniform across the country. These are likely to be clustered in urban areas.
 
 
 ```{r pairwise-intensity, echo=FALSE}
@@ -826,9 +815,9 @@ cat("\nMedian nearest neighbor distance:", round(median(nnd), 2), "meters")
 
 <br>
 
-**Buffer Analysis with Panamerican Highway**
+### Buffer Analysis with Panamerican Highway
 
-As expected, from this analysis, we can see that there is a higher amount of schools outside the inner buffers, as schools will try to serve the wider population, beyond the urban areas. On the other hand, we will see more access points located in urban areas, therefore closer to the highway as they serve more the densed urban areas.
+As expected, from this analysis, we can see that there is a higher amount of schools outside the inner buffers, as schools will try to serve the wider population, beyond the urban areas. On the other hand, we will see more access points located in urban areas, therefore closer to the highway as they serve more the densed urban areas. Now if we analyze and see the amount of schools greater that 5km from the highway we see the number increaseing. This logically means that location of schools it is not as influenced by the highway as access points are. Schools follow a more uniformed pattern across the country, without clustering. This gives higher access to school to areas that are rural as well.
 
 
 ```{r buffer-analysis, echo=FALSE}
@@ -938,9 +927,9 @@ print(buffer_summary)
 
 <br>
 
-**Access Points Distance from Panamerican Highway Analysis**
+### Access Points Distance from Panamerican Highway Analysis
 
-Here we analyze how far are the acces points from the highway and how clustered they are. Within the distribution, most access points are located within a 10km radius from the highway, meaning that they do follow a infrastructure logic behind the installation. It is very important to mention that there is an increase in the amount of access points beyond the 90/100kms. This follows the installation of access points in areas of difficult access, beyond the urban areas.
+Here we analyze how far are the acces points from the highway and how clustered they are. Within the distribution, most access points are located within a 10km radius from the highway, meaning that they do follow a infrastructure logic behind the installation. It is very important to mention that there is an increase in the amount of access points beyond the 90/100kms. This follows the installation of access points in areas of difficult access, beyond the urban areas. From the results we see that the closest access point is located at **0.33kms** from the highway. **A quarter** of the distribution of access points are within 1.55kms. Then, **half** of the access points are located within 8kms of distance from the highway. And 75% of the access points are within the 23kms mark. The furthest access point is located at **112.14kms** from the highway, probably being a remote area or achipielago such as Bocas del Toro. This public data location data is a right-skewed distribution, where the tail of the distribution ends at the right. It's a long tail stretch as these aps are not located in further areas, in comparison to those installed in urban areas. 
 
 ```{r highway-distances,  echo=FALSE}
 # Calculate distances from each access point to the nearest part of the highway
@@ -1019,7 +1008,14 @@ print("\nAccess Points vs Density:")
 print(ap_density_correlation)
 ```
 
-```{r main-map, eval=FALSE, echo=FALSE}
+
+<br>
+
+### School and Access Points Map
+
+This map serves just to show the map that contains both access points and schools. We can see, how schools are uniformly distributed across the country, trying to serve a greater size of the population. On the other hand, access points are clustered in urban areas, serving more densed general population instead of schools.
+
+```{r main-map, echo=FALSE}
 leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   # Districts with detailed popups
@@ -1077,3 +1073,8 @@ leaflet() %>%
 
 ```
 
+<br>
+
+## Conclusion
+
+Access to public internet through access points are highly related to urban areas, where we find higher densities. Now, this is not to say that rural areas do not have access to internet. They do and mostly through satellite installation of internet. We have to understand that Panama is a country with high inequalities and most of the development is done specific urban areas: Panama City, Chiriqui, Santiago and Colon. Population densities differ one to other greatly as job opportunities and infrastructure differ greatly between districts. This research offers a better visual to policy makers about where to enhance better access to internet, specially to public schools. Our analysis suggests that rural areas would benefit more with satellite access points intallations across the ports and costs of the Atlantic, which lacks a high number of aps compared to the Pacific side. 
